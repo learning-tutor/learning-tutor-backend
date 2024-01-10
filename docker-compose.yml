@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: learning-tutor-api-postgres
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: learning-tutor-api
+      PGDATA: /data/postgres
+    volumes: # Persist data to host machine (./data/pg) to avoid losing data when container is stopped or removed
+      - ./data/pg:/data/postgres
