@@ -22,6 +22,10 @@ With docker run and Run migrations:
 pnpm prisma migrate dev
 ```
 
+Start project:
+```sh
+pnpm start:dev
+```
 
 Check the database running this command:
 ```sh
