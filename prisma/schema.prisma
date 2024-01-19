@@ -12,12 +12,34 @@ enum UserRole {
   DEFAULT
 }
 
+enum UserTheme {
+  LIGHT
+  DARK
+}
+
+enum Language {
+  EN
+  PT_BR
+}
+
+model UserPreferences {
+  id       String    @id @default(uuid())
+  language Language  @default(EN)
+  theme    UserTheme @default(LIGHT)
+  timezone String
+  user     User      @relation(fields: [userId], references: [id])
+  userId   String    @unique
+
+  @@map("user_preferences")
+}
+
 model User {
-  id       String   @id @default(uuid())
-  name     String
-  email    String   @unique
-  password String
-  role     UserRole @default(DEFAULT)
+  id          String           @id @default(uuid())
+  name        String
+  email       String           @unique
+  password    String
+  role        UserRole         @default(DEFAULT)
+  preferences UserPreferences?
 
   @@map("users")
 }
