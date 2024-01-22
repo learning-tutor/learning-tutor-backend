@@ -1,6 +1,7 @@
 import { Either, left, right } from '@/core/either'
 import { Injectable } from '@nestjs/common'
-import { User } from '../../enterprise/entities/user'
+
+import { User } from '@/domain/tasks/enterprise/entities/user'
 import { UsersRepository } from '../repositories/users-repository'
 import { HashGenerator } from '../cryptography/hash-generator'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
