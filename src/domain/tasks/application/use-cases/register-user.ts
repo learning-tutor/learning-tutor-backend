@@ -10,6 +10,7 @@ interface RegisterUserUseCaseRequest {
   name: string
   email: string
   password: string
+  googleId?: string
 }
 
 type RegisterUserUseCaseResponse = Either<

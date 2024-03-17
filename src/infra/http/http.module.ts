@@ -9,14 +9,26 @@ import { AuthenticateUserUseCase } from '@/domain/tasks/application/use-cases/au
 import { CryptographyModule } from '../cryptography/cryptography.module'
 import { FetchUserController } from '@/infra/http/controllers/fetch-user.controller'
 import { FetchUserUseCase } from '@/domain/tasks/application/use-cases/fetch-user'
+import { GoogleAuthController } from '@/infra/http/controllers/google-authenticate.controller'
+import { AuthService } from '@/infra/auth/auth.service'
+import { GoogleAuthUseCase } from '@/domain/tasks/application/use-cases/google-auth'
+import { GoogleStrategy } from '@/infra/auth/google.strategy'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
   controllers: [
     CreateAccountControler,
+    GoogleAuthController,
     AuthenticateControler,
     FetchUserController,
   ],
-  providers: [RegisterUserUseCase, AuthenticateUserUseCase, FetchUserUseCase],
+  providers: [
+    RegisterUserUseCase,
+    AuthenticateUserUseCase,
+    FetchUserUseCase,
+    AuthService,
+    GoogleAuthUseCase,
+    GoogleStrategy,
+  ],
 })
 export class HttpModule {}

@@ -5,6 +5,7 @@ export interface UserProps {
   name: string
   email: string
   password: string
+  googleId?: string
 }
 
 export class User extends Entity<UserProps> {
@@ -18,6 +19,10 @@ export class User extends Entity<UserProps> {
 
   get password() {
     return this.props.password
+  }
+
+  get googleId() {
+    return this.props.googleId
   }
 
   static create(props: UserProps, id?: UniqueEntityID) {

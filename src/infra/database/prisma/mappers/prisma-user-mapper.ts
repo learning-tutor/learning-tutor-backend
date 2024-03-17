@@ -20,6 +20,7 @@ export class PrismaUserMapper {
       name: user.name,
       email: user.email,
       password: user.password,
+      googleId: user.googleId,
     }
   }
 }
